@@ -24,12 +24,25 @@ namespace Registration.Repo
 
                 return registrants.AsEnumerable();
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 throw;
             }
         }
+
+        //private void GetStateAttributeIfNull(IEnumerable<Registrant> registrants)
+        //{
+        //    if(!registrants.Any())
+        //    {
+        //        return;
+        //    }
+
+        //    foreach (var item in registrants)
+        //    {
+        //        if(item.Addresses)
+        //    }
+        //}
 
         public Registrant Get(Guid id)
         {

@@ -56,13 +56,11 @@ namespace Registration.Api.Controllers
                     return Unauthorized();
                 } ********************************************************************/
 
-                //var result = mapper.Mapper.Map<IEnumerable<RegistrationViewModel>>(registrationService.Get());
-                //var result = MapRegistrantToRegistrationViewModel(registrationService.Get());
-                var result = registrantMapper.MapDomainCollectionToViewModel(registrationService.Get());
+                var result = registrantMapper.MapDomainCollectionToViewModel(registrationService.Get()).OrderByDescending(x => x.CreatedDate);
 
                 return Ok(result);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // TODO: Add logging to capture specific exception
                 return BadRequest(errorMessage);
@@ -83,7 +81,7 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // TODO: Add logging to capture specific exception
                 return BadRequest(errorMessage);
@@ -152,7 +150,7 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
                 // TODO: Add logging to capture specific exception
                 return BadRequest(errorMessage);
@@ -174,7 +172,7 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest(errorMessage);
             }
@@ -194,7 +192,7 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest(errorMessage);
             }

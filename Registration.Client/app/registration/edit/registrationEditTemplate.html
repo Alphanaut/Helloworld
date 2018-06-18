@@ -1,0 +1,157 @@
+﻿<div class="well"    style="margin-top:80px;">
+    <form name="registrationForm" ng-submit="vm.submit(registrationForm.$valid)" role="form" novalidate>
+        <fieldset>
+            <div class="form-group" ng-class="{'has-error': registrationForm.firstName.$invalid && registrationForm.firstName.$dirty}">
+                <label class="control-label" for="firstName">First Name</label>
+                <div>
+                    <input type="text" class="form-control" id="firstName" name="firstName" ng-model="vm.registration.firstName" required />
+                    <span class="help-block has-error">
+                        <span ng-show="registrationForm.firstName.$error.required && registrationForm.firstName.$dirty">A first name is required.</span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error': registrationForm.lastName.$invalid && registrationForm.lastName.$dirty}">
+                <label class="control-label" for="lastName">Last Name</label>
+                <div>
+                    <input type="text" class="form-control" id="lastName" name="lastName" ng-model="vm.registration.lastName" required />
+                    <span class="help-block has-error">
+                        <span ng-show="registrationForm.lastName.$error.required && registrationForm.lastName.$dirty">A last name is required.</span>
+                    </span>
+                </div>
+            </div>
+            <h4>Address 1</h4>
+            <div class="form-group" ng-class="{'has-error': registrationForm.street1.$invalid && registrationForm.street1.$dirty}">
+                <label class="control-label" for="street1">Street</label>
+                <div>
+                    <input type="text" class="form-control" id="street1" name="street1" ng-model="vm.registration.street1" required />
+                    <span class="help-block has-error">
+                        <span ng-show="registrationForm.street1.$error.required && registrationForm.street1.$dirty">A street address is required.</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" ng-class="{'has-error': registrationForm.city1.$invalid && registrationForm.city1.$dirty}">
+                    <label class="control-label" for="city1">City</label>
+                    <div>
+                        <input type="text" class="form-control" id="city1" name="city1" ng-model="vm.registration.city1" required />
+                        <span class="help-block has-error">
+                            <span ng-show="registrationForm.city1.$error.required && registrationForm.city1.$dirty">A city is required.</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
+                    <label class="control-label" for="state1">State</label>
+                    <div>
+                        <select class="form-control" name="state1" id="state1"
+                                ng-model="vm.registration.stateId1"
+                                ng-options="value.value as value.display for value in vm.stateCodes"></select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
+                    <label class="control-label" for="country1">Country</label>
+                    <div>
+                        <select class="form-control" name="country1" id="country1"
+                                ng-model="vm.registration.countryId1"
+                                ng-options="value.value as value.display for value in vm.countryCodes"></select>
+                    </div>
+                </div>
+                <div class="form-group form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right" ng-class="{'has-error': registrationForm.zipCode1.$dirty && (registrationForm.zipCode1.$dirty || registrationForm.zipCode1.$error.minlength || registrationForm.zipCode1.$error.maxlegth) }">
+                    <label class="control-label" for="zipCode1">Zid Code</label>
+                    <div>
+                        <input type="text" class="form-control" id="zipCode1" name="zipCode1" ng-model="vm.registration.zipCode1" required ng-minlength="5" ng-maxlength="10" ng-pattern="/^\d{5}(?:[-\s]\d{4})?$/"/>
+                        <span class="help-block has-error">
+                            <span ng-show="registrationForm.zipCode1.$dirty && registrationForm.zipCode1.$error.required">A zip code is required.</span>
+                            <span ng-show="registrationForm.zipCode1.$dirty && registrationForm.zipCode1.$error.maxlength">A zip code must be at least 5 characters.</span>
+                            <span ng-show="registrationForm.zipCode1.$dirty &&registrationForm.zipCode1.$error.minlength">A zip code must be less than or equal to 9 characters.</span>
+                            <span ng-show="registrationForm.zipCode1.$dirty && registrationForm.zipCode1.$error.pattern">Please use the 5 or 10 digit US zip code.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="true">
+                <label class="control-label" for="type1">Address Type</label>
+                <div>
+                    <select class="form-control" name="type1" id="type1"
+                            ng-model="vm.registration.addressType1"
+                            ng-options="value.value as value.display for value in vm.addressTypes"></select>
+                </div>
+            </div>
+
+            <!-- address 2 -->
+            <h4>Address 2</h4>
+            <div class="form-group" ng-class="{'has-error': registrationForm.street2.$invalid && registrationForm.street2.$dirty}">
+                <label class="control-label" for="street1">Street</label>
+                <div>
+                    <input type="text" class="form-control" id="street2" name="street2" ng-model="vm.registration.street2" required />
+                    <span class="help-block has-error">
+                        <span ng-show="registrationForm.street2.$error.required && registrationForm.street2.$dirty">A street address is required.</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" ng-class="{'has-error': registrationForm.city2.$invalid && registrationForm.city2.$dirty}">
+                    <label class="control-label" for="city2">City</label>
+                    <div>
+                        <input type="text" class="form-control" id="city2" name="city2" ng-model="vm.registration.city2" required />
+                        <span class="help-block has-error">
+                            <span ng-show="registrationForm.city2.$error.required && registrationForm.city2.$dirty">A city is required.</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
+                    <label class="control-label" for="state2">State</label>
+                    <div>
+                        <select class="form-control" name="state2" id="state2"
+                                ng-model="vm.registration.stateId2"
+                                ng-options="value.value as value.display for value in vm.stateCodes"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
+                    <label class="control-label" for="country2">Country</label>
+                    <div>
+                        <select class="form-control" name="country2" id="country2"
+                                ng-model="vm.registration.countryId2"
+                                ng-options="value.value as value.display for value in vm.countryCodes"></select>
+                    </div>
+                </div>
+                <div class="form-group form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right" ng-class="{'has-error': registrationForm.zipCode2.$invalid && registrationForm.zipCode2.$dirty}">
+                    <label class="control-label" for="zipCode2">Zid Code</label>
+                    <div>
+                        <input type="text" class="form-control" id="zipCode2" name="zipCode2" ng-model="vm.registration.zipCode1" required ng-minlength="5" ng-maxlength="10" ng-pattern="/^\d{5}(?:[-\s]\d{4})?$/"/>
+                        <span class="help-block has-error">
+                            <span ng-show="registrationForm.zipCode2.$dirty && registrationForm.zipCode2.$error.required">A zip code is required.</span>
+                            <span ng-show="registrationForm.zipCode2.$dirty && registrationForm.zipCode2.$error.maxlength">A zip code must be at least 5 characters.</span>
+                            <span ng-show="registrationForm.zipCode2.$dirty && registrationForm.zipCode2.$error.minlength">A zip code must be between 5 and 10 characters.</span>
+                            <span ng-show="registrationForm.zipCode2.$dirty && registrationForm.zipCode2.$error.pattern">Please use the 5 or 10 digit US zip code.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="true">
+                <label class="control-label" for="type2">Address Type</label>
+                <div>
+                    <select class="form-control" name="type2" id="type2"
+                            ng-model="vm.registration.addressType2"
+                            ng-options="value.value as value.display for value in vm.addressTypes"></select>
+                </div>
+            </div>         
+        </fieldset>
+        <div class="form-group">
+            <div class="pull-right" style="padding-bottom: 15px;">
+                <span>
+                    <button class="btn btn-primary" style="width: 80px; margin-right: 10px" ng-disabled="registrationForm.$invalid">Submit</button>
+                </span>
+                <span>
+                    <button class="btn btn-default" style="width: 70px" ng-click="vm.cancel()">Cancel</button>
+                </span>
+            </div>
+        </div>
+        <hr />
+    </form>
+</div>

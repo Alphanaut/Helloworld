@@ -137,5 +137,25 @@ namespace Tests.Repo
             // Assert
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void GetAllRegistrants()
+        {
+            // Arrange
+
+
+            // Act
+            var result = registrantRepo.Get();
+
+            // Assert
+            Assert.NotEmpty(result);
+            Assert.NotNull(result);
+
+            // Analyze
+            foreach (var item in result)
+            {
+                console.WriteLine(item.Addresses.FirstOrDefault(x => x.AddressTypeId == 1).State.Name);
+            }
+        }
     }
 }

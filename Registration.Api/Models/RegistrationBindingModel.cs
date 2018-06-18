@@ -33,10 +33,9 @@ namespace Registration.Api.Models
         public int CountryId1 { get; set; }
 
         [Required(ErrorMessage = "A ZipCode is required.")]
+        [StringLength(10, ErrorMessage = "The {0} must be at least {5} characters long.", MinimumLength = 5)]
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "A standard U.S. zip code should be 5 or 10 digits")]
         public string ZipCode1 { get; set; }
-
-        //[Required(ErrorMessage = "An AddressTypeId is required.")]
-        //public int AddressTypeId1 { get; set; }
 
         [Required(ErrorMessage = "A Street is required.")]
         public string Street2 { get; set; }
@@ -51,9 +50,8 @@ namespace Registration.Api.Models
         public int CountryId2 { get; set; }
 
         [Required(ErrorMessage = "A ZipCode is required.")]
+        [StringLength(10, ErrorMessage = "The {0} must be at least {5} characters long.", MinimumLength = 5)]
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "A standard U.S. zip code should be 5 or 10 digits")]
         public string ZipCode2 { get; set; }
-
-        //[Required(ErrorMessage = "An AddressTypeId is required.")]
-        //public int AddressTypeId2 { get; set; }
     }
 }

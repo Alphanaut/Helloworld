@@ -1,0 +1,28 @@
+﻿<div style="margin-top:80px;">
+    <div panel>
+        <div panel panel-body>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td class="col-lg-2">Name</td>
+                        <td class="col-lg-2">Address 1</td>
+                        <td class="col-lg-2">Country 1</td>
+                        <td class="hidden-xs hidded-sm col-lg-2">Address 2</td>
+                        <td class="hidden-xs hidded-sm col-lg-2">Country 2</td>
+                        <td class="col-lg-2">Date Created</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="registrant in vm.registrants">
+                        <td>{{ registrant.lastName }}, {{ registrant.firstName }}</td>
+                        <td>{{ registrant.address1 }}</td>
+                        <td>{{ registrant.country1 }}</td>
+                        <td>{{ registrant.address2 }}</td>
+                        <td>{{ registrant.country2 }}</td>
+                        <td>{{ registrant.createdDate | date: 'fullDate' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

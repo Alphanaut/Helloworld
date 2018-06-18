@@ -1,0 +1,24 @@
+﻿<div class="panel"   style="margin-top:80px;">
+    <div class="panel-body">
+        <table>
+            <thead>
+                <tr col-lg-12>
+                    <td col-lg-2>Name</td>
+                    <td col-lg-2>City</td>
+                    <td col-lg-2>State</td>
+                    <td col-lg-2>Country</td>
+                    <td col-lg-2>Date</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="registrant in vm.registrants">
+                    <td>{{ registrant.lastName }}, {{ registrant.firstName }}</td>
+                    <td>{{ registrant.city }}</td>
+                    <td>{{ registrant.state }}</td>
+                    <td>{{ registrant.country }}</td>
+                    <td>{{ registrant.createdDate }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

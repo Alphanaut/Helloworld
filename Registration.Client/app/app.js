@@ -1,0 +1,6 @@
+﻿(function appInit() {
+    'use strict';
+
+    var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'ngResource', 'ngSanitize']);
+
+}());

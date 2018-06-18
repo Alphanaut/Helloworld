@@ -26,7 +26,7 @@ namespace Registration.DataLayer
             modelBuilder.Entity<Address>().HasRequired(x => x.Country);
             modelBuilder.Entity<Address>().Property(p => p.Street).IsRequired();
             modelBuilder.Entity<Address>().Property(p => p.City).IsRequired();
-            modelBuilder.Entity<Address>().Property(p => p.ZipCode).IsRequired().HasMaxLength(15);
+            modelBuilder.Entity<Address>().Property(p => p.ZipCode).IsRequired().HasMaxLength(10);
 
             modelBuilder.Entity<AddressType>().HasMany(p => p.Addresses);
             modelBuilder.Entity<State>().HasMany(p => p.Addresses);
