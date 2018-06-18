@@ -1,0 +1,104 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html data-ng-app="app" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Event Registration Application</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <style>
+        .navbar-border {
+            border-color: #000000
+        }
+
+        .navbar-bgcolor {
+            background-color: whitesmoke
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-border navbar-bgcolor">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1>test style change</h1>
+            </div>
+        </div>
+    </nav>
+    <div style="margin-top:13px;">
+        @*<div data-ui-view></div>*@
+        <div class="well">
+            <table ng-controller="RegistrationListCtrl as vm">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>City</td>
+                        <td>State</td>
+                        <td>Country</td>
+                        <td>Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="registrant in vm.registrants">
+                        <td>{{ registrant.lastName, registrant.firstName }}</td>
+                        <td>{{ registrant.city }}</td>
+                        <td>{{ registrant.state }}</td>
+                        <td>{{ registrant.country }}</td>
+                        <td>{{ registrant.data }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer style="width: 100%; height: 80px; background: #272727;" class="footer">
+        <div class="container" style="height: 80px; padding: 20px;">
+            <div class="pull-left" style="color: #7d7d7d">
+                <p>hello world</p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/lodash.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- angular scripts -->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-resource.min.js"></script>
+    <script src="~/Scripts/angular-ui-router.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.min.js"></script>
+    <script src="~/Scripts/angular-animate.min.js"></script>
+
+    <script src="~/app/app.js"></script>
+    @*<script src="~/app/app.routing.js"></script>*@
+
+    <!-- services -->
+    <script src="~/app/registration/registrationService.js"></script>
+    <!-- directives -->
+    <!-- controllers -->
+    <script src="~/app/registration/edit/registrationEditCtrl.js"></script>
+    <script src="~/app/registration/result/registrationResultCtrl.js"></script>
+    <script src="~/app/admin/registration/list/adminRegistrationListCtrl.js"></script>
+    <script src="~/app/registration/list/registrationListCtrl.js"></script>
+
+</body>
+</html>
