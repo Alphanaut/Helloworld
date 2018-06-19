@@ -2,7 +2,7 @@
     'use strict';
 
     function registrationService($resource, appSettings) {
-        var registrationServicePath = /*appSettings.serverPath*/'http://localhost:82/' + 'api/registration';
+        var registrationServicePath = /*appSettings.serverPath*/'http://localhost:82/'/*'http://helloworldapi-ppd.toolstats.com/'*/  + 'api/registration';
 
         return {
             registration: $resource(registrationServicePath + '/:id', null, { 'update': { method: 'PUT' } }),

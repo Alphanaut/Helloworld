@@ -11,6 +11,7 @@ using Unity.WebApi;
 using Registration.Api.Controllers;
 using Registration.Api.Interfaces;
 using Registration.Api.Services.Mapper;
+using Registration.Api.Services;
 
 namespace Registration.Api
 {
@@ -47,6 +48,7 @@ namespace Registration.Api
 
             // TODO: Register your types here
             container.RegisterType<IMappingEngine>(new InjectionFactory(_ => Mapper.Engine));
+            container.RegisterType<ILog, NLogService>();
             
             container.RegisterType<IRegistrationService, RegistrationService>();
             container.RegisterType<IAddressOptionService, AddressOptionService>();

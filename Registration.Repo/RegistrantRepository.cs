@@ -21,6 +21,9 @@ namespace Registration.Repo
             {
                 var registrants = All;
 
+                // NOTE: EF Issue - State object not returned with query; Here we manually add "State" object; 
+                // TODO: Investigate a better was to resolve this.
+                GetStateAttributeIfNull(registrants);
                 return registrants.AsEnumerable();
             }
             catch (Exception)
@@ -30,18 +33,30 @@ namespace Registration.Repo
             }
         }
 
-        //private void GetStateAttributeIfNull(IEnumerable<Registrant> registrants)
-        //{
-        //    if(!registrants.Any())
-        //    {
-        //        return;
-        //    }
+        private void GetStateAttributeIfNull(IEnumerable<Registrant> registrants)
+        {
+            if (!registrants.Any())
+            {
+                return;
+            }
 
-        //    foreach (var item in registrants)
-        //    {
-        //        if(item.Addresses)
-        //    }
-        //}
+            foreach (var item in registrants)
+            {
+                if (item.Addresses.Any())
+                {
+                    foreach (var address in item.Addresses)
+                    {
+                        if(address.State == null)
+                        {
+                            if (address.StateId != default(int))
+                            {
+                                address.State = context.States.Find(address.StateId);
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         public Registrant Get(Guid id)
         {

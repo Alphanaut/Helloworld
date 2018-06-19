@@ -25,14 +25,16 @@ namespace Registration.Api.Controllers
         private readonly IAddressOptionService addressOptionService;
         private readonly IRegistrantMapper registrantMapper;
         private readonly IRegistrationFormMapper registrationFormMapper;
+        private readonly ILog log;
 
-        public RegistrationController(IMappingEngine mapper, IRegistrationService registrationService, IAddressOptionService addressOptionService, IRegistrantMapper registrantMapper, IRegistrationFormMapper registrationFormMapper)
+        public RegistrationController(IMappingEngine mapper, IRegistrationService registrationService, IAddressOptionService addressOptionService, IRegistrantMapper registrantMapper, IRegistrationFormMapper registrationFormMapper, ILog log)
         {
             this.mapper = mapper;
             this.registrationService = registrationService;
             this.addressOptionService = addressOptionService;
             this.registrantMapper = registrantMapper;
             this.registrationFormMapper = registrationFormMapper;
+            this.log = log;
         }
 
 
@@ -60,9 +62,10 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // TODO: Add logging to capture specific exception
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -81,9 +84,10 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // TODO: Add logging to capture specific exception
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -101,9 +105,10 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // TODO: Add logging to capture specific exception
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -121,9 +126,10 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // TODO: Add logging to capture specific exception
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -150,9 +156,10 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception) 
+            catch (Exception e)  
             {
                 // TODO: Add logging to capture specific exception
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -172,8 +179,9 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
@@ -192,8 +200,9 @@ namespace Registration.Api.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                log.Error(e);
                 return BadRequest(errorMessage);
             }
         }
